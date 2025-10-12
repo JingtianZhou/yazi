@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -62,14 +62,6 @@ play = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
-vtu = [
-  {run = 'paraview "$@"', desc = "paraview", block = true, for = "unix"},
-]
-
-matlab = [
-  { run = "matlab -r \"run(\\\"$1\\\")\"", desc = "Open in MATLAB", block = true, for = "unix" }
-]
-
 [open]
 rules = [
 	# Folder
@@ -89,11 +81,6 @@ rules = [
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
 	{ name = "*", use = [ "open", "reveal" ] },
-  # vtk
-  { mime = "application/vnd.vtk.vtu", use = ["vtu", "reveal"]},
-  { name = "*.vtu", use = ["vtu", "reveal"] },  # Optional fallback
-  # matlab
-  { name = "application/m", use = ["matlab", "reveal"] },
 ]
 
 [tasks]
@@ -101,11 +88,10 @@ micro_workers    = 10
 macro_workers    = 10
 bizarre_retry    = 3
 image_alloc      = 536870912  # 512MB
-image_bound      = [ 0, 0 ]
+image_bound      = [ 5000, 5000 ]
 suppress_preload = false
 
 [plugin]
-
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
@@ -122,8 +108,6 @@ spotters = [
 	{ mime = "video/*", run = "video" },
 	# Fallback
 	{ name = "*", run = "file" },
-	# Fallback
-	{ name = "vtu/*", run = "vtu" },
 ]
 preloaders = [
 	# Image
