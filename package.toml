@@ -1,18 +1,7 @@
-
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
 rev = "75f6f72"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:open-with-cmd"
-rev = "75f6f72"
-hash = "99aa06d3014798d86001c324468d497f"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:my-zoxide"
-rev = "75f6f72"
-hash = "99aa06d3014798d86001c324468d497f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
@@ -24,12 +13,12 @@ use = "yazi-rs/plugins:compress"
 rev = "75f6f72"
 hash = "99aa06d3014798d86001c324468d497f"
 
-[[flavor.deps]]
-use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "fc8eeaa"
-hash = ""
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "e3d430f"
+hash = "d29c1ffa99099181faf8c01d1f59aa4c"
 
 [[flavor.deps]]
-use = "yazi-rs/flavors:catppuccin-latte"
-rev = "fc8eeaa"
-hash = ""
+use = "AdithyanA2005/nord"
+rev = "bdf0bd4"
+hash = "816970e00d643d3e8213b430d2148aec"
